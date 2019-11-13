@@ -1,6 +1,7 @@
 package com.example.aws.blogapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,7 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.example.aws.blogapp.Activities.PostDetailActivity;
 import com.example.aws.blogapp.Adapters.PostAdapter;
 import com.example.aws.blogapp.Models.Post;
 import com.example.aws.blogapp.R;
@@ -89,14 +92,62 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
-       postRecyclerView  = fragmentView.findViewById(R.id.postRV);
+     /*  postRecyclerView  = fragmentView.findViewById(R.id.postRV);
         postRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        postRecyclerView.setHasFixedSize(true);
+        postRecyclerView.setHasFixedSize(true);*/
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Posts");
+
+        ImageView a,b,c,d,e;
+        a=fragmentView.findViewById(R.id.imageView2);
+        b=fragmentView.findViewById(R.id.imageView3);
+        c=fragmentView.findViewById(R.id.imageView4);
+        d=fragmentView.findViewById(R.id.imageView5);
+        e=fragmentView.findViewById(R.id.imageView6);
+
+        a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                send(view);
+            }
+        });
+
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                send(view);
+            }
+        });
+
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                send(view);
+            }
+        });
+
+        d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                send(view);
+            }
+        });
+
+        e.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                send(view);
+            }
+        });
         return fragmentView ;
     }
 
+    public void send(View v)
+    {
+        Intent i=new Intent(getContext(), PostDetailActivity.class);
+        startActivity(i);
+    }
 
     @Override
     public void onStart() {

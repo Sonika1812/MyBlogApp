@@ -63,7 +63,7 @@ public class PostDetailActivity extends AppCompatActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getSupportActionBar().hide();
 
-        // ini Views
+    /*    // ini Views
         RvComment = findViewById(R.id.rv_comment);
         imgPost =findViewById(R.id.post_detail_img);
         imgUserPost = findViewById(R.id.post_detail_user_img);
@@ -144,7 +144,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
 
         // ini Recyclerview Comment
-        iniRvComment();
+        iniRvComment();*/
 
 
     }
