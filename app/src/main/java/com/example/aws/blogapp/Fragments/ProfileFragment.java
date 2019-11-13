@@ -1,14 +1,22 @@
 package com.example.aws.blogapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.aws.blogapp.Activities.LoginActivity;
 import com.example.aws.blogapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +35,8 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser ;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,7 +75,30 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+         View fragmentView= inflater.inflate(R.layout.fragment_profile, container, false);
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        TextView UserMail=(TextView)fragmentView.findViewById(R.id.email);
+        TextView UserName=(TextView)fragmentView.findViewById(R.id.name);
+        ImageView UserPhoto=fragmentView.findViewById(R.id.userPhoto);
+        Button signout=fragmentView.findViewById(R.id.signout);
+
+        UserMail.setText(currentUser.getEmail());
+        UserName.setText(currentUser.getDisplayName());
+
+        // now we will use Glide to load user image
+        // first we need to import the library
+
+        Glide.with(this).load(currentUser.getPhotoUrl()).into(UserPhoto);
+        signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Intent loginActivity = new Intent(getContext(), LoginActivity.class);
+                startActivity(loginActivity);
+            }
+        });
+         return fragmentView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

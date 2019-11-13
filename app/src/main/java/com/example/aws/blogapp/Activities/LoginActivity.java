@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aws.blogapp.R;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar loginProgress;
     private FirebaseAuth mAuth;
     private Intent HomeActivity;
-    private ImageView loginPhoto;
+    private TextView signup;
 
 
 
@@ -42,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         loginProgress = findViewById(R.id.login_progress);
         mAuth = FirebaseAuth.getInstance();
         HomeActivity = new Intent(this,com.example.aws.blogapp.Activities.Home.class);
-        loginPhoto = findViewById(R.id.login_photo);
-        loginPhoto.setOnClickListener(new View.OnClickListener() {
+        signup = findViewById(R.id.Signup);
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

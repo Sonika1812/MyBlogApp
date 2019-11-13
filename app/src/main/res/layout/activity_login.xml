@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/userphoto" />
+        app:srcCompat="@drawable/mainpageicon" />
 
     <EditText
         android:id="@+id/login_mail"
@@ -81,7 +81,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_password" />
-
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyle"
@@ -91,5 +90,17 @@
         app:layout_constraintEnd_toEndOf="@+id/loginBtn"
         app:layout_constraintStart_toStartOf="@+id/loginBtn"
         app:layout_constraintTop_toTopOf="@+id/loginBtn" />
+
+    <TextView
+        android:id="@+id/Signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_progress"
+        android:text="Dont have an account? Sign Up" />
+
+
 
 </android.support.constraint.ConstraintLayout>

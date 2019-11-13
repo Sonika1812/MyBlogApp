@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
-        postRecyclerView  = fragmentView.findViewById(R.id.postRV);
+       postRecyclerView  = fragmentView.findViewById(R.id.postRV);
         postRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         postRecyclerView.setHasFixedSize(true);
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                postList = new ArrayList<>();
+                /*postList = new ArrayList<>();
                 for (DataSnapshot postsnap: dataSnapshot.getChildren()) {
 
                     Post post = postsnap.getValue(Post.class);
@@ -119,7 +119,7 @@ public class HomeFragment extends Fragment {
                 }
 
                 postAdapter = new PostAdapter(getActivity(),postList);
-                postRecyclerView.setAdapter(postAdapter);
+                postRecyclerView.setAdapter(postAdapter);*/
 
 
             }
